@@ -5,6 +5,7 @@ import "./estilo/Dsg.css"
 import { Title } from "./componentes/Titulo"
 import {Label} from "./componentes/Label"
 import {Numero} from "./componentes/Numero";
+import Tabla from "./componentes/Tb"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<>
@@ -16,9 +17,13 @@ root.render(<>
             </div>
             <div className="cajon">
                 <Label text="resultado"/>
-                <div id="E1"></div>
+                <div id="E1">
+                <React.StrictMode>
+        <Tabla />
+    </React.StrictMode>,
+                </div>
             </div>
         </div>
     </div>
-
+    
 </>)
