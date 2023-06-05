@@ -2,14 +2,12 @@ import React, { useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 
 //nested data is ok, see accessorKeys in ColumnDef below
-const dato = () => {
-  let data = []
-  for (let y = 0; y < 50; y++) {
-    data.push(y);
+const data = () => {
+  let arreglo = []
+  for (let i = 1; i <= 50; i++) {
+    arreglo.push({"num": i, "cuad": (i*i)})
   }
-  let dato = JSON.parse(data);
-  console.log(dato);
-  return data 
+  return JSON.stringify(arreglo)
 }
 /*const data = [
   {
@@ -65,12 +63,12 @@ const Tabla = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'numero', //access nested data with dot notation
+        accessorKey: 'num', //access nested data with dot notation
         header: 'Numero',
         size: 5,
       },
       {
-        accessorKey: 'cuadrado',
+        accessorKey: 'cuad',
         header: 'Cuadrado',
         size: 5,
       },
@@ -80,7 +78,7 @@ const Tabla = () => {
 
   return <MaterialReactTable
     columns={columns}
-    data={dato}
+    data={data}
     enableColumnActions={false}
     enableColumnFilters={false}
     enablePagination={false}
